@@ -47,7 +47,7 @@ class NearEarthObject:
         # and a missing diameter being represented by `float('nan')`.
         self.designation = info.get("designation")
         self.name = info.get("name")
-        self.diameter = float(info.get("diameter"))
+        self.diameter = info.get("diameter")
         self.hazardous = info.get("hazardous")
 
         # Create an empty initial collection of linked approaches.
@@ -102,8 +102,8 @@ class CloseApproach:
         self._designation = info.get("designation")
         # Use the cd_to_datetime function for this attribute.
         self.time = cd_to_datetime(info.get("time"))
-        self.distance = float(info.get("distance"))
-        self.velocity = float(info.get("velocity"))
+        self.distance = info.get("distance")
+        self.velocity = info.get("velocity")
 
         # Create an attribute for the referenced NEO, originally None.
         self.neo = info.get("neo")
