@@ -79,6 +79,14 @@ class DateFilter(AttributeFilter):
 
     @classmethod
     def get(cls, approach):
+        """Return converted approach time for the date filter
+
+        Args:
+            approach (CloseApproach): approach object
+
+        Returns:
+            datetime: approach time after convert to datetime
+        """
         return approach.time.date()
 
 
@@ -87,6 +95,14 @@ class DistanceFilter(AttributeFilter):
 
     @classmethod
     def get(cls, approach):
+        """Return approach distance for the distance filter
+
+        Args:
+            approach (CloseApproach): approach object
+
+        Returns:
+            float: approach distance
+        """
         return approach.distance
 
 
@@ -95,6 +111,14 @@ class VelocityFilter(AttributeFilter):
 
     @classmethod
     def get(cls, approach):
+        """Return approach velocity for the velocity filter
+
+        Args:
+            approach (CloseApproach): approach object
+
+        Returns:
+            float: approach velocity
+        """
         return approach.velocity
 
 
@@ -103,6 +127,14 @@ class DiameterFilter(AttributeFilter):
 
     @classmethod
     def get(cls, approach):
+        """Return approach diameter for the diameter filter
+
+        Args:
+            approach (CloseApproach): approach object
+
+        Returns:
+            float: approach diameter
+        """
         return approach.neo.diameter
 
 
@@ -111,6 +143,14 @@ class HazardousFilter(AttributeFilter):
 
     @classmethod
     def get(cls, approach):
+        """Return approach hazardous for the hazardous filter
+
+        Args:
+            approach (CloseApproach): approach object
+
+        Returns:
+            bool: approach hazardous
+        """
         return approach.neo.hazardous
 
 
@@ -187,5 +227,5 @@ def limit(iterator, n=None):
     # Produce at most `n` values from the given iterator.
     if n is None or n == 0:
         return iterator
-    return list(islice(iterator, n))
+    return islice(iterator, n)
     
