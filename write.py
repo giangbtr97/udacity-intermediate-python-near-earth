@@ -15,6 +15,8 @@ import json
 
 
 def convertDataForCSVFile(data):
+    """Convert data for CSV file."""
+
     convertedData = {**data.serialize(), **data.neo.serialize()}
     convertedData["name"] = convertedData["name"] if convertedData["name"] is not None else ""
     convertedData["potentially_hazardous"] = "True" if convertedData["potentially_hazardous"] else "False"
@@ -22,6 +24,8 @@ def convertDataForCSVFile(data):
 
 
 def convertDataForJsonFile(data):
+    """Convert data for json file."""
+
     convertedData = {**data.serialize(), **data.neo.serialize()}
     convertedData["name"] = convertedData["name"] if convertedData["name"] is not None else ""
     return {
